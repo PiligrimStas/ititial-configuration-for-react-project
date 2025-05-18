@@ -1,0 +1,22 @@
+"start": "webpack serve --env port=3000"
+"build:prod": "webpack --env mode=production",
+"build:dev": "webpack --env mode=development --env port=3000"
+
+"npm run start"
+эта команда запустит webpack-dev-server но не создаст папку build и не изменит если она уже существует
+в проекте. Всё содержимое файлов которые долны быть в папке build создаетё прямов в памяти и прямо из памяти считавет и изменения вносятся и отобразаются на экране на лету.
+внутри webpack-dev-server и будет существовать пока сервер работает
+
+"npm run build:dev"
+ при выпонении данного скрипта запустится сборка в dev режиме при это функция 
+в файлу webpack.config.ts получит объект env. В этом обекте будет иметь следующий вид
+{mode: 'production', port: 3000} Собственно значения этих полей узазываются именно в scripts package.json
+В общем env это объект с полями которые мы определяем прямо в package.json и мы можем типизировать этот
+объект например у нас он типизирован интерфейсом BuildEnv. Эта команда не запустит webpack-dev-server. Только
+соберет файлы в папку build
+
+// webpack.config.ts
+export default (env: BuildEnv) => {
+    .....
+    return config;
+};

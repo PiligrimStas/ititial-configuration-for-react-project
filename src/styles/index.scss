@@ -1,0 +1,9 @@
+// styles/index.scss
+// здесь мы собираем при помощи @use всё что написали в других файлах в один этот.
+
+@use './reset';
+@use './variables';
+@use './themes/themeVariables';
+@use './themes/light';
+@use './themes/dark';
+@use './global';

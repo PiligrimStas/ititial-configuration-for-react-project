@@ -1,0 +1,77 @@
+{
+    "compilerOptions": {
+        // outDir нам по сути не нужно, так как всё делает webpack
+        "outDir": "./dist/",
+
+        // Указываем, что модули нужно собирать в формате ES-модулей
+        // Это нужно для поддержки import/export синтаксиса, tree-shaking, dynamic imports и т.д.
+        "module": "ESNext",
+
+        // В какую спецификацию компилируем: для поддержки большинства современных браузеров
+        // ES2020 позволяет использовать такие возможности как optional chaining, nullish coalescing и т.д.
+        "target": "ES2020",
+
+        // Используем современный JSX-трансформер, доступный с TypeScript 4.1+
+        // Не требует импортировать React в каждом файле
+        "jsx": "react-jsx",
+
+        // Включает все строгие проверки TypeScript: строгая типизация, null-checks и т.д.
+        // Помогает находить потенциальные ошибки ещё до запуска
+        "strict": true,
+
+        // Пропускаем проверку типов внутри node_modules для ускорения сборки
+        // Полезно в больших проектах, не влияет на твою типовую безопасность
+        "skipLibCheck": true,
+
+        // Следит за тем, чтобы регистр в путях к файлам был всегда одинаковый
+        // Особенно важно при работе на Windows и macOS, где регистр не чувствителен
+        "forceConsistentCasingInFileNames": true,
+
+        // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
+        // Это нужно, если в проекте есть смешанные файлы (например, старый JS-код)
+        "allowJs": true,
+
+        // Указываем, как разрешать модули при импортах: через node-алгоритм
+        // Это нужно, чтобы правильно искать index.ts, index.js, .d.ts и пр.
+        "moduleResolution": "node",
+
+        // Для абсолютного импорта
+        "baseUrl": ".",
+
+        // esModuleInterop позволяет работать с пакетами, которые используют
+        // common js как с обычными пакетами с помощью import (require() / module.exports)
+        // import Moment from 'moment';
+        // без флага esModuleInterop результат undefined
+        // console.log(Moment);
+        // с флагом результат [object Object]
+        // console.log(Moment);
+        "esModuleInterop": true,
+
+        // Если какая-либо библиотека не имеет default export,
+        // лоадеры вроде ts-loader или babel-loader автоматически создают их
+        // вместо такого импорта:
+        // import * as React from 'react';
+        // можно писать такой:
+        // import React from 'react';
+        "allowSyntheticDefaultImports": true
+
+        // "plugins": [
+        //     {
+        //         "name": "typescript-plugin-css-modules",
+        //         "options": {
+        //             "customMatcher": "\\.module\\.(scss|css)$",
+        //             "namedExports": true,
+        //             "camelCase": true
+        //         }
+        //     }
+        // ]
+    },
+
+    "ts-node": {
+        "compilerOptions": {
+            // Явно указываем ts-node, что модульная система CommonJS
+            // Это нужно для корректной загрузки webpack.config.ts, если нет "type": "module" в package.json
+            "module": "CommonJS"
+        }
+    }
+}
