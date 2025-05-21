@@ -62,6 +62,25 @@ export function buildLoaders({ useEsbuild, isDev }: BuildOptions): webpack.RuleS
               },
     };
 
+    // SVG как React-компонент или как URL
+    const svgLoader: webpack.RuleSetRule = {
+        test: /\.svg$/,
+        oneOf: [
+            {
+                resourceQuery: /react/, // import icon from './icon.svg?react'
+                use: ['@svgr/webpack'],
+            },
+            {
+                type: 'asset/resource', // import icon from './icon.svg'
+            },
+        ],
+    };
+
+    const assetLoader: webpack.RuleSetRule = {
+        test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+        type: 'asset/resource',
+    };
+
     // Загрузчик для модульных SCSS файлов (*.module.scss)
     const scssModuleLoader: webpack.RuleSetRule = {
         test: /\.module\.s[ac]ss$/i,
@@ -75,55 +94,7 @@ export function buildLoaders({ useEsbuild, isDev }: BuildOptions): webpack.RuleS
         use: getStyleLoaders(false, isDev),
     };
 
-    return [typescriptLoader, scssModuleLoader, scssGlobalLoader];
-    // const cssLoader = {
-    //     test: /\.s[ac]ss$/i,
-    //     use: [
-    //         isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-    //         {
-    //             loader: 'css-modules-dts-loader',
-    //             options: {
-    //                 namedExport: true,
-    //                 camelCase: true,
-    //                 banner: '// Auto-generated. Do not edit.',
-    //                 mode: isDev ? 'emit' : 'verify',
-    //             },
-    //         },
-    //         {
-    //             loader: 'css-loader',
-    //             options: {
-    //                 esModule: true,
-    //                 modules: {
-    //                     namedExport: true,
-    //                     exportLocalsConvention: 'as-is',
-
-    //                     auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-    //                     localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]',
-    //                 },
-    //             },
-    //         },
-    //         'sass-loader',
-    //     ],
-    // };
-
-    // return [
-    //     {
-    //         test: /\.tsx?$/,
-    //         exclude: /node_modules/,
-    //         use: useEsbuild
-    //             ? {
-    //                   loader: 'esbuild-loader',
-    //                   options: {
-    //                       loader: 'tsx',
-    //                       target: 'es2020',
-    //                   },
-    //               }
-    //             : {
-    //                   loader: 'ts-loader',
-    //               },
-    //     },
-    //     cssLoader,
-    // ];
+    return [svgLoader, assetLoader, typescriptLoader, scssModuleLoader, scssGlobalLoader];
 }
 
 //__________________________________________коментарии к настройкам загрузчиков____________________________________________________
@@ -180,3 +151,14 @@ export function buildLoaders({ useEsbuild, isDev }: BuildOptions): webpack.RuleS
 // если изначально в .module.scss .myClass { color: red; } то получим что-вроде
 //  .src_components_Button_style__myClass {color: red;} в dev сборке
 // или ._2f3aBcDe { color: red; } в prod сборке
+
+// ________________________svgLoader_________________________________________
+
+// oneOf — это массив альтернативных вариантов обработки одного и того же типа файлов.
+// Webpack выберет только первое совпавшее правило из oneOf.
+// Это помогает избежать конфликтов — как только найдено совпадение, остальное игнорируется.
+// resourceQuery: /react/ указывает что нужно использовать svgrLoader для обработки svg. Это сработает если в
+// импорте указан путь ?react например Применяется, если в импортируемом пути есть ?react, например: import Icon from './icon.svg?react';
+// в этом случае Icon будет импортирован как React компонент.
+// Если импортируем просто  import icon from './icon.svg то будет использован встроенныый в webpack 'asset/resource' loader и svg будет
+// импортирован просто как svg файл. Так же в d.ts файле нужно указать typescript rfr обрабать .svg?react и просто .svg

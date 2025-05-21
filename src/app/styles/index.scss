@@ -1,0 +1,17 @@
+// styles/index.scss
+// здесь мы собираем при помощи @use всё что написали в других файлах в один этот.
+
+@use './reset';
+@use './globalVariables';
+@use './themes/light';
+@use './themes/dark';
+@use './global';
+
+// читаем значения переменных созданых в селекторе .app.dark или .app.light если на странице не использовался селектор например class="app dark" а использовался только class="app" то эти переменные будут пустыми
+.app {
+    // background-color: var(--bg-color);
+    background-color: var(--primary-color);
+    // color: var(--primary-color);
+    color: var(--inverted-primary-color);
+    min-height: 100vh;
+}

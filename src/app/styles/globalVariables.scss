@@ -1,0 +1,33 @@
+// gloabalVariables.scss
+
+// Создаём глобальные переменные. Переменные созданные в :root не требуют отдельного использования :root как например селектора .app.dark что бы перменные были
+// созданы. Переменные определённые в :root будут созданы в любом случе и доступны в любом компоненте, в любом элементе, в любом вложенном селекторе, в любых модулях стилей.
+:root {
+    // базовый размер который передаём в селекторо html и от которого будем считать rem если меняем значениие это переменной так же нужно изменить значение в $base-font-size: 16px; в файлу functions.scss
+    --base-font-size: 16px;
+
+    // шрифты размему
+    --font-family-main: 'Consolas', 'Times New Roman', serif;
+
+    --font-size-s: 0.75rem;
+    --font-line-s: 1rem;
+    --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+
+    --font-size-m: 1rem;
+    --font-line-m: 1.5rem;
+    --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+
+    --font-size-l: 1.5rem;
+    --font-line-l: 2rem;
+    --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+    // Размеры
+    --navbar-height: 50px;
+}
+
+// Файл описывает CSS-переменные (--color-primary, --font-size-m).
+// Эти переменные остаются в финальном CSS и доступны в браузере.
+// Используются для:
+// динамического изменения тем
+// быстрого переключения тем без пересборки проекта
+// гибкой настройки цветов, шрифтов, отступов на клиенте

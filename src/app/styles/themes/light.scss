@@ -1,0 +1,34 @@
+// light.scss
+// селектор .app.light создаёт (определяет) переменные и их значения. например  .app.dark будет создавать переменные с такими же именами но
+// с другими значениями то есть если мы передаём csassName="app dark" у этих перемнных будут одни значения при calssName="app light" другие
+// в случае  calssName="app" значения этих переменных вообще будут пустыми, поскольу в таком случае они даже не будут существовать. Вообще значения этих переменных считыватюся с селкторе .app
+// например:
+// .app {
+//     background-color: var(--bg-color);
+//     color: var(--primary-color);
+//     min-height: 100vh;
+// }
+// в строке color: var(--primary-color) мы получаем значение перемнной --primary-color с помощью ключевого слова var
+// Только если элемент имеет класс app dark
+
+// .app.light {
+//     --bg-color: #e8e8ea;
+//     --inverted-bg-color: #090949;
+
+//     --primary-color: #0232c2;
+//     --secondary-color: #0449e0;
+//     --inverted-primary-color: #049604;
+//     --inverted-secondary-color: #04ff04;
+// }
+
+.app.light {
+    // --bg-color: #cfd8dc;
+    // --inverted-bg-color: #00838f;
+
+    --primary-color: #cfd8dc;
+    --secondary-color: #37474f;
+    --inverted-primary-color: #00838f;
+    --inverted-secondary-color: #fafafa;
+
+    --extra-color: #26a69a;
+}

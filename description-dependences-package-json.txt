@@ -23,6 +23,11 @@ webpack
 webpack-cli
 Позволяет запускать Webpack через терминал. Обеспечивает доступ к командам webpack, webpack --config, webpack serve и т.д.
 
+@svgr/webpack
+Позволяет webpack обрабатывать svg файлы и имортировать их как react компонеты например import DarkIcon from 'shared/assets/icons/theme-dark.svg';
+DarkIcon далее можно использовать как <DarkIcon />
+
+
 @types/node
 Добавляет поддержку типов Node.js в TypeScript. Позволяет корректно использовать глобальные переменные и модули Node (path, fs, process и т.д.).
 
