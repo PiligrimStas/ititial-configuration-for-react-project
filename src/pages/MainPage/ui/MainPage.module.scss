@@ -1,9 +1,9 @@
 .btn {
     margin-top: 50px;
     margin-left: 20px;
-    background-color: var(--extra-color);
+    background-color: var(--color-primary);
     padding: 10px 20px 10px 20px;
-    color: var(--secondary-color);
+    color: var(--color-text);
     border: 2px solid var(--secondary-color);
     border-radius: 10px;
 }
@@ -11,9 +11,9 @@
 .btn2 {
     margin-top: 50px;
     margin-left: 20px;
-    background-color: var(--inverted-primary-color);
+    background-color: var(--color-primary);
     padding: 10px 20px 10px 20px;
-    color: var(--inverted-secondary-color);
+    color: var(--color-text-invert);
     border: 2px solid var(--secondary-color);
     border-radius: 10px;
 }
@@ -21,7 +21,7 @@
 .btn3 {
     margin-top: 50px;
     margin-left: 20px;
-    background-color: var(--inverted-primary-color);
+    background-color: var(--color-primary-dark);
     padding: 10px 20px 10px 20px;
     color: var(--inverted-secondary-color);
     border: 2px solid var(--extra-color);
@@ -31,7 +31,7 @@
 .btn4 {
     margin-top: 50px;
     margin-left: 20px;
-    background-color: var(--secondary-color);
+    background-color: var(--color-secondary);
     padding: 10px 20px 10px 20px;
     color: var(--inverted-secondary-color);
     border: 2px solid var(--extra-color);
@@ -41,7 +41,7 @@
 .btn5 {
     margin-top: 50px;
     margin-left: 20px;
-    background-color: var(--secondary-color);
+    background-color: var(--color-success);
     padding: 10px 20px 10px 20px;
     color: var(--primary-color);
     border: 2px solid var(--extra-color);

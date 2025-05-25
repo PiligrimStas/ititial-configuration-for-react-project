@@ -9,9 +9,40 @@
 
 // читаем значения переменных созданых в селекторе .app.dark или .app.light если на странице не использовался селектор например class="app dark" а использовался только class="app" то эти переменные будут пустыми
 .app {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     // background-color: var(--bg-color);
-    background-color: var(--primary-color);
+    background-color: var(--color-bg);
     // color: var(--primary-color);
-    color: var(--inverted-primary-color);
+    color: var(--color-text);
     min-height: 100vh;
+}
+
+.content-page {
+    display: flex;
+    flex: 1;
+    gap: 15px;
+}
+
+.page-wrapper {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: var(--color-surface);
+    border-radius: 10px 0 0 0;
+}
+
+.left-side-wrapper {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.switchers {
+    bottom: 20px;
+    display: flex;
+    justify-content: start;
+    padding: 10px;
+    background-color: var(--color-surface);
+    border-radius: 0 10px 0 0;
 }

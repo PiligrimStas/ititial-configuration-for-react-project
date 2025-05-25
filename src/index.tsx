@@ -4,6 +4,8 @@ import { AppRouter } from 'app/providers/router';
 import { ThemeProvider } from 'app/providers/ThemeProvider';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
+import 'shared/config/i18n/i18n';
+
 const container = document.getElementById('root');
 if (!container) throw new Error('root not found');
 const root = createRoot(container);

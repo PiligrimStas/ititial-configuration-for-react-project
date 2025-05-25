@@ -23,3 +23,11 @@ declare module '*.svg?react' {
     const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
     export default ReactComponent;
 }
+
+declare const __IS_DEV__: boolean; // типизируем глобальую перменную которую мы создали в ebpack.DefinePlugin
+
+declare module 'i18next-localstorage-cache' {
+    import { Module } from 'i18next';
+    const cache: Module;
+    export default cache;
+}

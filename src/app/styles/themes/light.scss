@@ -21,14 +21,28 @@
 //     --inverted-secondary-color: #04ff04;
 // }
 
+// .app.light {
+//     // --bg-color: #00838f;
+//     // --inverted-bg-color: #cfd8dc;
+
+//     --primary-color: #00838f;
+//     --secondary-color: #fafafa;
+//     --inverted-primary-color: #cfd8dc;
+//     --inverted-secondary-color: #37474f;
+
+//     --extra-color: #26a69a;
+// }
+
 .app.light {
-    // --bg-color: #cfd8dc;
-    // --inverted-bg-color: #00838f;
+    --color-bg: #cfd8dc; // основной фон
+    --color-surface: #fafafa; // карты, панели, блоки
+    --color-text: #37474f; // обычный текст
+    --color-text-invert: #fafafa; // текст на тёмном фоне
+    --color-primary: #26a69a; // основной акцент (кнопки, ссылки)
+    --color-primary-dark: #00838f; // hover/active
 
-    --primary-color: #cfd8dc;
-    --secondary-color: #37474f;
-    --inverted-primary-color: #00838f;
-    --inverted-secondary-color: #fafafa;
-
-    --extra-color: #26a69a;
+    --color-error: #e53935;
+    --color-warning: #ffa000;
+    --color-success: #66bb6a;
+    --color-secondary: #ff7043; // вторичный акцент
 }
