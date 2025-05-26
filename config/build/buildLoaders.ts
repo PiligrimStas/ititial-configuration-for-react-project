@@ -94,7 +94,37 @@ export function buildLoaders({ useEsbuild, isDev }: BuildOptions): webpack.RuleS
         use: getStyleLoaders(false, isDev),
     };
 
-    return [svgLoader, assetLoader, typescriptLoader, scssModuleLoader, scssGlobalLoader];
+    const babelLoader = {
+        test: /\.(js|jsx|ts|tsx)$/, // Регулярка: Babel будет обрабатывать все .js, .jsx и .tsx файлы
+        exclude: /node_modules/, // Исключаем node_modules — обрабатывать их не нужно (и долго)
+
+        use: {
+            loader: 'babel-loader', // Указываем Webpack использовать babel-loader
+
+            // теперь эти настройки живут в babel.config.json
+            // options: {
+            //     presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react'],
+            //     plugins: [
+            //         [
+            //             'i18next-extract',
+            //             {
+            //                 locales: ['ru', 'en'],
+            //                 keyAsDefaultValue: true,
+            //             },
+            //         ],
+            //     ],
+            // },
+        },
+    };
+
+    return [
+        svgLoader,
+        assetLoader,
+        babelLoader,
+        typescriptLoader,
+        scssModuleLoader,
+        scssGlobalLoader,
+    ];
 }
 
 //__________________________________________коментарии к настройкам загрузчиков____________________________________________________
