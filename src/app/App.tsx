@@ -1,16 +1,19 @@
 // App.tsx
+// import { JSX Suspense } from 'react';
+import { type JSX, Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import './styles/index.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
+
 import { useTheme } from 'app/providers/ThemeProvider';
-import { Suspense } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
-// если не все Route в Outlet lazyLoading то лучше оборачивать в suspense по отдельности отдельные маршруты в AppRouter
 
-const App = () => {
+import './styles/index.scss';
+
+// если не все Route в Outlet lazyLoading то лучше оборачивать в suspense по отдельности отдельные маршруты в AppRouter
+const App = (): JSX.Element => {
     const { theme } = useTheme();
 
     return (

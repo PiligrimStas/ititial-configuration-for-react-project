@@ -1,7 +1,8 @@
 // buildLoaders.ts
-import webpack from 'webpack';
-import { BuildOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+
+import type { BuildOptions } from './types/config';
+import type webpack from 'webpack';
 
 // Функция генерации набора загрузчиков для стилей
 function getStyleLoaders(isModule: boolean, isDev: boolean): webpack.RuleSetUseItem[] {
@@ -45,7 +46,7 @@ function getStyleLoaders(isModule: boolean, isDev: boolean): webpack.RuleSetUseI
     ];
 }
 
-export function buildLoaders({ useEsbuild, isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders({ useEsbuild = false, isDev }: BuildOptions): webpack.RuleSetRule[] {
     const typescriptLoader: webpack.RuleSetRule = {
         test: /\.tsx?$/, // .ts и .tsx файлы
         exclude: /node_modules/,
@@ -127,7 +128,7 @@ export function buildLoaders({ useEsbuild, isDev }: BuildOptions): webpack.RuleS
     ];
 }
 
-//__________________________________________коментарии к настройкам загрузчиков____________________________________________________
+// __________________________________________коментарии к настройкам загрузчиков____________________________________________________
 // {
 //     loader: 'css-modules-dts-loader',
 //     options: {
@@ -158,7 +159,7 @@ export function buildLoaders({ useEsbuild, isDev }: BuildOptions): webpack.RuleS
 // здесь для наглядности
 
 // namedExport: true,
-//нужна чтобы работал export const btn, а не default, идёт по умолчанию,
+// нужна чтобы работал export const btn, а не default, идёт по умолчанию,
 // здесь для наглядности. Если установить в false то будут
 // рабоать default импоты import styles from some.module.css
 // но это устаревший подход

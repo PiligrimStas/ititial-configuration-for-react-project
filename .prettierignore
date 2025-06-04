@@ -1,0 +1,32 @@
+# Сборочные артефакты
+build
+dist
+coverage
+out
+
+# Зависимости
+node_modules
+
+# Статические файлы
+*.svg
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.woff
+*.woff2
+*.ttf
+
+# HTML и CSS
+*.html
+*.css
+
+# SCSS (если компилируется отдельно)
+*.scss
+
+# Логи
+*.log
+
+# Конфигурация IDE
+.vscode
+.idea

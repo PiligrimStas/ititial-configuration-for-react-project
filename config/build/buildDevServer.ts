@@ -1,6 +1,7 @@
 // buildDevServer.ts
-import { BuildOptions } from './types/config';
+import type { BuildOptions } from './types/config';
 import type { Configuration as DevServerConfiguration } from 'webpack-dev-server'; // здесь мы переименовали импорт типа что бы он не пересекался с одноимённым типам самого webpack
+
 
 export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     return {

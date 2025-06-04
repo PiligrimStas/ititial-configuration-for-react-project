@@ -179,3 +179,55 @@ concurrently
 Может обрабатывать development и production режимы по флагу development: true.
 
 
+eslint	Сам линтер. Интерпретирует конфиг, запускает проверки
+prettier	Форматтер кода. Приводит стили к единообразному виду (отступы, кавычки и пр.)
+
+eslint-plugin-prettier
+Запускает Prettier как правило ESLint — ошибки форматирования появляются как ESLint-ошибки, подключается к eslint. Благодаря ему eslint умеет подсвечивать ошибки нарушающе правила из prettier.config как свои собственные
+
+eslint-config-prettier	
+Отключает правила ESLint, которые конфликтуют с Prettier (например, отступы, кавычки)
+
+
+eslint-plugin-i18next
+Этот плагин помогает обеспечить, чтобы все отображаемые пользователю строки были интернационализированы, предотвращая использование "жёстко закодированных" строк без перевода.
+
+eslint-plugin-storybook
+Этот плагин предоставляет набор правил для обеспечения качества и согласованности ваших Storybook-историй. Он помогает выявлять ошибки и следовать лучшим практикам при написании историй.
+
+eslint-plugin-unused-imports
+Удаляет неиспользуемые импорты и переменные. Удобен для автоматической очистки кода:
+no-unused-imports: ❌ импорты, которые не используются
+no-unused-vars: переменные, которые не используются (альтернатива встроенному правилу)
+
+@eslint/compat
+Переходный слой для использования старых конфигов (например, extends: 'airbnb') в новой системе Flat Config (eslint.config.js).
+Нужен только если используешь includeCompatConfig() или includeIgnoreFile().
+
+eslint-plugin-react
+Базовые правила для React-кода:
+проверяет корректность JSX
+рекомендует стиль написания компонентов
+следит за propTypes, defaultProps, JSX-практиками и т.п.
+
+eslint-plugin-react-hooks
+Следит за корректным использованием React Hooks:
+rules-of-hooks: хуки вызываются только в компонентах/кастомных хуках
+exhaustive-deps: зависимости useEffect, useCallback, useMemo и др.
+
+eslint-plugin-jsx-a11y
+Проверки на доступность (a11y) в JSX:
+наличие alt у <img>
+корректное использование role, aria-*
+навигация с клавиатуры, обработчики событий
+
+eslint-plugin-import
+Анализирует импорты:
+ошибки при разрешении путей (import/no-unresolved)
+порядок и группировка (import/order)
+дубликаты, циклические зависимости, prefer-default-export и пр.
+
+eslint-plugin-promise
+Добавляет правила для корректной работы с промисами:
+no-return-wrap, always-return, no-floating-promises, prefer-await-to-then и пр.
+следит, чтобы async/await и .then/.catch использовались осмысленно

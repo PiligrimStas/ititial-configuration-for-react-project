@@ -1,6 +1,8 @@
 {
+    // --- Твои существующие настройки ---
     "typescript.preferences.importModuleSpecifier": "relative",
     "javascript.preferences.importModuleSpecifier": "relative",
+
     "path-autocomplete.extensionOnImport": true,
     "path-autocomplete.pathMappings": {
         "@": "${workspaceFolder}/src"
@@ -8,42 +10,38 @@
     "path-autocomplete.excludedItems": {
         "**/*.d.ts": true
     },
-    "path-autocomplete.extensions": [
-        ".ts",
-        ".tsx",
-        ".js",
-        ".jsx",
-        ".scss",
-        ".css",
-        ".svg",
-        ".png",
-        ".jpg",
-        ".jpeg"
-    ],
+    "path-autocomplete.extensions": [".ts", ".tsx", ".js", ".jsx", ".scss", ".css", ".svg", ".png", ".jpg", ".jpeg"],
     "path-autocomplete.transformations": [
         {
             "type": "replace",
-            "when": {
-                "fileName": "**/*.scss"
-            },
+            "when": { "fileName": "**/*.scss" },
             "search": "",
             "replace": ".scss"
         },
         {
             "type": "replace",
-            "when": {
-                "fileName": "**/*.tsx"
-            },
+            "when": { "fileName": "**/*.tsx" },
             "search": "",
             "replace": ".tsx"
         },
         {
             "type": "replace",
-            "when": {
-                "fileName": "**/*.ts"
-            },
+            "when": { "fileName": "**/*.ts" },
             "search": "",
             "replace": ".ts"
         }
-    ]
+    ],
+
+    "eslint.useFlatConfig": true,
+
+    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+
+    // --- Форматирование и автофикс ---
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.fixAll.eslint": "explicit"
+    }
 }

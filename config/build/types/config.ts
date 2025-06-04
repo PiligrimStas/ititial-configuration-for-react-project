@@ -1,4 +1,4 @@
-//config.ts
+// config.ts
 
 // этот тип опсывает в каком режиме webpack будет собирать приложение, его значение будет переданно одним из параметров в
 //  функцию buildWepackCongig, котоая будет возвращать объект конфигурации webpack. Значения этого типа попадёт в поле mode вебпак конфигурации
@@ -17,8 +17,8 @@ export interface BuildPaths {
 // в этом объекте будет передваться значение env переменных, а это значение задаётся в командах поля scripts package.json
 // например "build:prod": "webpack --env mode=production"
 export interface BuildEnv {
-    mode: BuildMode;
-    port: number;
+    mode?: BuildMode;
+    port?: number;
 }
 
 export interface BuildOptions {

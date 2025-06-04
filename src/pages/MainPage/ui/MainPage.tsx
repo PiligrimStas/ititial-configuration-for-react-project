@@ -1,7 +1,10 @@
 import { useTranslation } from 'react-i18next';
+
+import type { JSX } from 'react';
+
 import { btn, btn2, btn3, btn4, btn5 } from './MainPage.module.scss';
 
-const MainPage = () => {
+const MainPage = (): JSX.Element => {
     const { t } = useTranslation();
     return (
         <div>

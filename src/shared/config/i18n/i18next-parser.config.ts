@@ -1,6 +1,6 @@
-// i18next-parser.config.js:
+// i18next-parser.config.ts
 
-module.exports = {
+const config = {
     locales: ['en', 'ru'],
     defaultNamespace: 'common',
     namespace: ['common', 'main', 'about'],
@@ -8,4 +8,6 @@ module.exports = {
     input: ['src/**/*.{ts,tsx}'],
     createOldCatalogs: true,
     verbose: true,
-};
+} as const;
+
+export default config;

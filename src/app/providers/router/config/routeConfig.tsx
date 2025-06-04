@@ -1,8 +1,9 @@
 // routeConfig.tsx
 
-import { RouteObject } from 'react-router-dom';
-import { MainPage } from 'pages/MainPage';
 import { AboutPage } from 'pages/AboutPage';
+import { MainPage } from 'pages/MainPage';
+
+import type { RouteObject } from 'react-router-dom';
 
 // Перечисление маршрутов
 export enum AppRoutes {
