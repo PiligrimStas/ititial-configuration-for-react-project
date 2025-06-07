@@ -1,13 +1,14 @@
 // Navbar.module.scss
 
 .navbar {
-    width: 100%;
-    height: var(--navbar-height);
-    // background: var(--inverted-bg-color); // было до подклю собственной темы
-    background: var(--color-surface);
     display: flex;
     align-items: center;
+    width: 100%;
+    height: var(--navbar-height);
     padding: 20px;
+
+    // background: var(--inverted-bg-color); // было до подклю собственной темы
+    background: var(--color-surface);
 }
 
 .links {

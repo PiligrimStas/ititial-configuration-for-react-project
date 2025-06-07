@@ -231,3 +231,29 @@ eslint-plugin-promise
 Добавляет правила для корректной работы с промисами:
 no-return-wrap, always-return, no-floating-promises, prefer-await-to-then и пр.
 следит, чтобы async/await и .then/.catch использовались осмысленно
+
+npm install --save-dev postcss-scss
+npm install --save-dev stylelint stylelint-config-standard-scss
+--save-dev stylelint-order stylelint-config-recess-order
+
+
+stylelint
+Основной линтер для CSS, SCSS и других стилей.
+Проверяет валидность, дубли, ошибки, неправильные конструкции.
+Аналог eslint, но для стилей.
+
+stylelint-config-standard-scss
+Набор базовых правил для SCSS:
+включает стандартные правила CSS (stylelint-config-standard);
+добавляет SCSS-специфику (например, переменные, @mixin, вложенность).
+Рекомендуемый стандарт в 2025 году.
+
+stylelint-order
+Плагин, который позволяет контролировать порядок:
+CSS-свойств (order/properties-order);
+блоков внутри селектора (order/order).
+Сам по себе ничего не делает — требует конфигурации или preset'а.
+
+stylelint-config-recess-order
+Готовый пресет порядка CSS-свойств, основанный на методологии Recess.
+Определяет логичный и читаемый порядок: сначала позиционирование, потом box-model, потом оформление, потом анимации.

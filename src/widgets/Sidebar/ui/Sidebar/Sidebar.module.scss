@@ -1,12 +1,11 @@
-//Sidebar.module.scss
+// Sidebar.module.scss
 
 .sidebar {
+    position: relative;
     flex-grow: 1;
     width: var(--sidebar-width);
     background: var(--color-surface);
     border-radius: 0 10px 10px 0;
-
-    position: relative;
     transition: width 0.3s;
 }
 

@@ -36,3 +36,23 @@ export default (env: BuildEnv) => {
 "i18n:watch": "chokidar \"src/**/*.{ts,tsx}\" -c \"npm run i18n:extract\""
 Комнада запускает chokidar который смотрит за изменениями в файлах и выполняет команду npm run i18n:extract если файлы изменяются. Такм образом на не нужно выполнять данную команд всякий раз сами
 Нужно только в начале работы выполнить npm run i18n:watch, но за нас это сделат concurrently при npm start
+
+"lint": "eslint . --ext .ts,.tsx,.js,.jsx" (npm run lint)
+Команда запускает проверку линтинга на всех файлах с указанными выше расширениями
+
+
+"lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix", (npm run lint:fix)
+Эта команда может починить некотоые ошибки которые выявила прошлая команда npm run lint
+
+"lint:inspect": "eslint --inspect-config src/index.tsx", (npm run lint:inspect)
+Команда откроет во вкладке браузра встроенную в eslint утилиту котороя позовляет просматривать правила которые есть 
+к конфигурации линтера
+
+"lint:styles": "stylelint \"src/**/*.{css,scss}\"" (npm run lint:styles)
+Команда запускает линтер для файлов стилей .css .scss
+
+"lint:styles:fix": "stylelint \"src/**/*.{css,scss}\" --fix" (npm run lint:styles:fix)
+команда может автоматически исправить некоторые ошибки линтинга файлов со стилями
+
+
+

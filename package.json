@@ -13,7 +13,9 @@
         "format": "prettier --write .",
         "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
         "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
-        "lint:inspect": "eslint --inspect-config src/index.tsx"
+        "lint:inspect": "eslint --inspect-config src/index.tsx",
+        "lint:styles": "stylelint \"src/**/*.{css,scss}\"",
+        "lint:styles:fix": "stylelint \"src/**/*.{css,scss}\" --fix"
     },
     "keywords": [],
     "author": "",
@@ -62,6 +64,10 @@
         "sass": "^1.86.1",
         "sass-loader": "^16.0.5",
         "style-loader": "^4.0.0",
+        "stylelint": "^16.20.0",
+        "stylelint-config-recess-order": "^6.0.0",
+        "stylelint-config-standard-scss": "^15.0.1",
+        "stylelint-order": "^6.0.4",
         "ts-loader": "^9.5.2",
         "ts-node": "^10.9.2",
         "typescript": "^5.8.2",
