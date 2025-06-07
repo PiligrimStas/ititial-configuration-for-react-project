@@ -11,21 +11,6 @@ function getStyleLoaders(isModule: boolean, isDev: boolean): webpack.RuleSetUseI
         // В PROD режиме выносим стили в отдельные файлы через MiniCssExtractPlugin
         isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
 
-        // Если файл модульный (*.module.scss), подключаем генерацию типов через css-modules-dts-loader
-        ...(isModule
-            ? [
-                  {
-                      loader: 'css-modules-dts-loader',
-                      options: {
-                          namedExport: true, // Генерируем именованные экспорты вместо дефолтного
-                          camelCase: true, // Преобразуем имена классов в camelCase
-                          banner: '// Auto-generated. Do not edit.', // Добавляем баннер в .d.ts файлы
-                          mode: isDev ? 'emit' : 'verify', // В dev режиме генерируем файлы, в prod проверяем
-                      },
-                  },
-              ]
-            : []),
-
         // Основной css-loader
         {
             loader: 'css-loader',
@@ -101,20 +86,6 @@ export function buildLoaders({ useEsbuild = false, isDev }: BuildOptions): webpa
 
         use: {
             loader: 'babel-loader', // Указываем Webpack использовать babel-loader
-
-            // теперь эти настройки живут в babel.config.json
-            // options: {
-            //     presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react'],
-            //     plugins: [
-            //         [
-            //             'i18next-extract',
-            //             {
-            //                 locales: ['ru', 'en'],
-            //                 keyAsDefaultValue: true,
-            //             },
-            //         ],
-            //     ],
-            // },
         },
     };
 
@@ -129,29 +100,7 @@ export function buildLoaders({ useEsbuild = false, isDev }: BuildOptions): webpa
 }
 
 // __________________________________________коментарии к настройкам загрузчиков____________________________________________________
-// {
-//     loader: 'css-modules-dts-loader',
-//     options: {
-//         // указывает на то что нужно генерировать именнованые экспорты в d.ts файлы вместо default что бы
-//         // работали такие импорты import { btn } from './Button.module.scss';
-//         namedExport: true,
 
-//         // преобразует имя класса btn-primary в css файле в имя btnPrimary которое
-//         // мы можем использовать при импорте и использовать в js так как js
-//         // не поддреживает имена содержащие знак '-'
-//         camelCase: true,
-
-//         // эта надпись  будет появляться в каждом сгенерированом .d.ts файле
-//         banner: '// Auto-generated. Do not edit.',
-
-//         // здесь сказано что при сборке в dev режиме нужно сгенерировать или
-//         // обновить d.ts файлы если это необходимо, а в prod режиме просто
-//         // проверить. Это значит что если в .module.scss появились изменения
-//         // и попытаемся выполнить сборку в prod режиме то сборка упадёт
-//         // потому что этот лоадер просто сверит .module.scss с соответсующим .d.ts и ничего не сделает, а вот в dev режиме он приведёт их сначала с соответсвие поэтому сборка не упадёт
-//         mode: isDev ? 'emit' : 'verify',
-//     },
-// },
 
 // _______________________'css-loader'______________________
 // esModule: true,

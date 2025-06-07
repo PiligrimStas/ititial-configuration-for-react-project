@@ -1,3 +1,2 @@
-// Auto-generated. Do not edit.
-export const button: string;
-export const clear: string;
+export declare const button: string;
+export declare const clear: string;

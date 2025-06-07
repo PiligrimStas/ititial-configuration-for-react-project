@@ -1,4 +1,3 @@
-// Auto-generated. Do not edit.
-export const navbar: string;
-export const links: string;
-export const mainLink: string;
+export declare const links: string;
+export declare const mainLink: string;
+export declare const navbar: string;

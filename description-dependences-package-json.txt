@@ -68,7 +68,7 @@ mini-css-extract-plugin?
 вместо того чтобы встраивать стили через <style> теги (как делает style-loader) он подлючает их через <link>
 что повышает производительность. Так же легче работать с Content Security Policy запрещает inline-стили — <style> не подойдёт
 
-css-modules-dts-loader
+typed-scss-modules
 Этот лоадер нам понадобился из-за того что на проекте мы испльзуем самую актуальную седьмую версию css-loader
 которая не работает default export из за чего мы не могли использовать такой импорт import classes from './Counter.module.scss';
 и настройка
@@ -83,10 +83,12 @@ declare module '*.module.scss' {
   export const class1: string;
   export const class2: string;
 }
-
-Так вот этот css-modules-dts-loader во время сборки или запуска проекта на webpack-dev-server генерирует d.ts файл рядом
-с .module.scss файлом в котором типизирует все его классы, и обновляет его если в .module.scss произошли изменения, таки образом
-этот лоадер берёт на себя рутинную работу по дабавлению css классов в d.ts файлы.
+так вот 
+typed-scss-modules — это CLI-инструмент, который:
+генерирует .d.ts типы для *.module.scss (или *.module.css)
+создаёт файлы рядом с исходным .scss
+используется вне Webpack — напрямую через npm-скрипты
+поддерживает namedExports, camelCase, includePaths, watch
 
 i18next`  
 Основная библиотека интернационализации

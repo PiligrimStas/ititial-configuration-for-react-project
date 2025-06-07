@@ -2,11 +2,14 @@ import { lazy } from 'react';
 
 export const MainPageAsync = lazy(
     async () =>
-        await new Promise((resolve) => {
-            // @ts-ignore
-            // ТАК В РЕАЛЬНЫХ ПРОЕКТАХ НЕ ДЕЛАТЬ!!!!! ДЕЛАЕМ ДЛЯ КУРСА!
+        new Promise<{ default: React.ComponentType }>((resolve) => {
             setTimeout(() => {
-                resolve(import('./MainPage'));
-            }, 1500);
+                import('./MainPage')
+                    .then((module) => resolve({ default: module.default }))
+                    .catch((error) => {
+                        console.error('Failde to load MainPage', error);
+                        throw error;
+                    });
+            });
         }),
 );

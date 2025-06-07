@@ -1,6 +1,6 @@
 // stylelint.config.js
 
-export default {
+module.exports = {
     // Наследуем базовые правила для SCSS:
     // - включает стандартные рекомендации stylelint
     // - включает поддержку SCSS-синтаксиса (customSyntax указывать не нужно)

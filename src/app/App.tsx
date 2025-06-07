@@ -11,6 +11,7 @@ import { Sidebar } from 'widgets/Sidebar';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 
 import './styles/index.scss';
+import { PageLoader } from 'widgets/PageLoader/ui/PageLoader';
 
 // если не все Route в Outlet lazyLoading то лучше оборачивать в suspense по отдельности отдельные маршруты в AppRouter
 const App = (): JSX.Element => {
@@ -33,7 +34,7 @@ const App = (): JSX.Element => {
                         </div>
                     </div>
                     <div className="page-wrapper">
-                        <Suspense fallback={<div>Загрузка страницы...</div>}>
+                        <Suspense fallback={<PageLoader />}>
                             <Outlet />
                         </Suspense>
                     </div>

@@ -4,7 +4,7 @@
 "i18n:extract": "i18next \"src/**/*.{ts,tsx}\" --config src/shared/config/i18n/i18next-parser.config.js",
 "i18n:watch": "chokidar \"src/**/*.{ts,tsx}\" -c \"npm run i18n:extract\""
 
-"start": "concurrently -k -n WEBPACK,I18N -c blue,magenta \"webpack serve --env port=3000\" \"npm run i18n:watch\""
+"start": "concurrently -k -n WEBPACK,I18N,TYPES_GEN -c blue,magenta,yellow \"webpack serve --env port=3000\" \"npm run i18n:watch\" \"npm run types:styles:watch\"",
 concurrently	Запускает несколько команд параллельно в одном терминале
 -k	"Kill others" — если одна команда завершится (или упадёт), остальные тоже завершатся. Это удобно при Ctrl+C
 -n WEBPACK,I18N	Имена процессов: задаёт псевдонимы для логов, чтобы видеть, какая команда что пишет (таким образом будем видеть в терминале строки начинающиеся с синих [WEBPACK] которе маркируют процессы webpack)
@@ -12,6 +12,7 @@ concurrently	Запускает несколько команд параллел
 "webpack serve --env port=3000"	Первая команда — твой Webpack dev-сервер эта команда запустит webpack-dev-server но не создаст папку build и не изменит если она уже существует в проекте.
 Всё содержимое файлов которые долны быть в папке build создаетё прямов в памяти и прямо из памяти считавет и изменения вносятся и отобразаются на экране на лету. внутри webpack-dev-server и будет существовать пока сервер работает
 "npm run i18n:watch"	Вторая команда — вотчер для автоматического извлечения переводов
+npm run types:styles:watch Третья команда запускает генерацию d.ts файлов для .module.scss файлов
 
 
 "npm run build:dev"
@@ -53,6 +54,16 @@ export default (env: BuildEnv) => {
 
 "lint:styles:fix": "stylelint \"src/**/*.{css,scss}\" --fix" (npm run lint:styles:fix)
 команда может автоматически исправить некоторые ошибки линтинга файлов со стилями
+
+  "types:styles": "typed-scss-modules src --includePaths src",
+npm run types:styles
+Разовая генерация всех *.module.scss.d.ts в проекте (в папке src)
+Полезно при CI-сборке или ручном запуске
+
+  "types:styles:watch": "typed-scss-modules src --includePaths src --watch"
+  npm run types:styles:watch
+Запускает watcher — отслеживает изменения SCSS и генерирует типы в фоне
+Используется во время локальной разработки
 
 
 

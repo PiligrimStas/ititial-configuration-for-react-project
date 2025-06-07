@@ -1,5 +1,4 @@
-// Auto-generated. Do not edit.
-export const appLink: string;
-export const primary: string;
-export const secondary: string;
-export const red: string;
+export declare const appLink: string;
+export declare const primary: string;
+export declare const red: string;
+export declare const secondary: string;
