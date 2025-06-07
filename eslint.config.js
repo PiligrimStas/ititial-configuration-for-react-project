@@ -3,6 +3,7 @@ import globals from 'globals';
 
 import { i18nextConfig } from './config/eslint/i18nextRullesEslint.js';
 import { importConfig } from './config/eslint/importRulesEslint.js';
+import { jestConfig } from './config/eslint/jestRulesEslint.js';
 import { jsConfig } from './config/eslint/jsRulesEslint.js';
 import { prettierConfig } from './config/eslint/prettierRulesEslint.js';
 import { promiseConfig } from './config/eslint/promiseRulesEslint.js';
@@ -33,7 +34,6 @@ export default defineConfig([
             globals: {
                 ...globals.browser,
                 ...globalsApp,
-                // ...globals.jest,
             },
         },
     },
@@ -46,4 +46,5 @@ export default defineConfig([
     ...reactConfig,
     storybookConfig,
     i18nextConfig,
+    jestConfig,
 ]);

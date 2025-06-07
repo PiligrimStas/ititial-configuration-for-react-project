@@ -257,3 +257,29 @@ CSS-свойств (order/properties-order);
 stylelint-config-recess-order
 Готовый пресет порядка CSS-свойств, основанный на методологии Recess.
 Определяет логичный и читаемый порядок: сначала позиционирование, потом box-model, потом оформление, потом анимации.
+
+jest
+Основной фреймворк для тестирования.
+Позволяет писать test, expect, describe и пр.
+Работает с TypeScript, Babel, React и т.д.
+
+@types/jest
+Типы для Jest, чтобы TypeScript понимал test, expect, jest.fn() и т.п.
+Без него TS ругается на глобальные функции тестов.
+Используется только в dev-среде.
+
+babel-jest
+Позволяет Jest использовать Babel для трансформации кода.
+Нужно, если ты используешь Babel (например, @babel/preset-react, @babel/preset-typescript).
+Работает в паре с babel.config.cjs.
+
+jest-environment-jsdom
+Тестовое окружение, эмулирующее браузер (window, document и т.п.)
+Обязателен для React-тестов.
+Указывается в testEnvironment: 'jsdom'.
+
+eslint-plugin-jest
+Плагин ESLint с правилами для Jest.
+Находит потенциальные ошибки (test.only, expect() без .toBe()).
+Помогает писать чистые, согласованные тесты.
+
