@@ -28,7 +28,7 @@ export const Sidebar = ({ className }: SidebarProps): JSX.Element => {
             ])}
         >
             <button style={{ color: 'red' }} onClick={onToggle}>
-                toggle
+                1234
             </button>
         </div>
     );

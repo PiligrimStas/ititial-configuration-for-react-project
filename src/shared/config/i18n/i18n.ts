@@ -1,10 +1,10 @@
 // i18n.ts
 
-import i18n from 'i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
-import Backend from 'i18next-http-backend';
-import Cache from 'i18next-localstorage-cache';
-import { initReactI18next } from 'react-i18next';
+import i18n from "i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+import Backend from "i18next-http-backend";
+import Cache from "i18next-localstorage-cache";
+import { initReactI18next } from "react-i18next";
 
 void i18n
     .use(Cache) // Кэшируем переводы в localStorage
@@ -12,29 +12,29 @@ void i18n
     .use(LanguageDetector) // Определяем язык пользователя
     .use(initReactI18next)
     .init({
-        fallbackLng: 'en', // язык по умолчанию, если не найден
-        supportedLngs: ['en', 'ru'], // явно перечисляем поддерживаемые языки
+        fallbackLng: "en", // язык по умолчанию, если не найден
+        supportedLngs: ["en", "ru"], // явно перечисляем поддерживаемые языки
 
         // Где лежат переводы
         backend: {
-            loadPath: '/locales/{{lng}}/{{ns}}.json',
+            loadPath: "/locales/{{lng}}/{{ns}}.json",
         },
 
         // Настройки кэша
         cache: {
             enabled: true,
-            prefix: 'i18next_res_',
+            prefix: "i18next_res_",
             expirationTime: 7 * 24 * 60 * 60 * 1000, // 7 дней
         },
 
         // Определение языка
         detection: {
-            order: ['localStorage', 'cookie', 'navigator', 'htmlTag'],
-            caches: ['localStorage'],
+            order: ["localStorage", "cookie", "navigator", "htmlTag"],
+            caches: ["localStorage"],
         },
 
-        ns: ['common', 'main', 'about'], // список неймспейсов по умолчанию (имён json файлов по умолчанию)
-        defaultNS: 'common', // значит что переводы при вызове useTranslation() без параметра будут браться в файле common.json если не указывать это поле то п умолчанию i18next будет искать переводы в файлу translstions.json
+        ns: ["common", "main", "about"], // список неймспейсов по умолчанию (имён json файлов по умолчанию)
+        defaultNS: "common", // значит что переводы при вызове useTranslation() без параметра будут браться в файле common.json если не указывать это поле то п умолчанию i18next будет искать переводы в файлу translstions.json
 
         interpolation: {
             escapeValue: false, // React сам экранирует

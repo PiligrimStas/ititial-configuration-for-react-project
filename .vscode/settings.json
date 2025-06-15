@@ -10,7 +10,18 @@
     "path-autocomplete.excludedItems": {
         "**/*.d.ts": true
     },
-    "path-autocomplete.extensions": [".ts", ".tsx", ".js", ".jsx", ".scss", ".css", ".svg", ".png", ".jpg", ".jpeg"],
+    "path-autocomplete.extensions": [
+        ".ts",
+        ".tsx",
+        ".js",
+        ".jsx",
+        ".scss",
+        ".css",
+        ".svg",
+        ".png",
+        ".jpg",
+        ".jpeg"
+    ],
     "path-autocomplete.transformations": [
         {
             "type": "replace",

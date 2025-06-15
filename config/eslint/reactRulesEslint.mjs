@@ -11,6 +11,11 @@ export const reactConfig = [
         extends: [pluginReact.configs.flat.recommended],
         files: ['**/*.{tsx,js,jsx}'],
         name: 'react/override',
+        settings: {
+            react: {
+                version: 'detect', // это устраняет предупреждение
+            },
+        },
         rules: {
             'react/react-in-jsx-scope': 'off',
             'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.tsx'] }],

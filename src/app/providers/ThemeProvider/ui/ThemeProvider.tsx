@@ -1,11 +1,11 @@
-import { type JSX, type ReactNode, useMemo, useState } from 'react';
+import { type JSX, type ReactNode, useMemo, useState } from "react";
 
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/ThemeContext';
+import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "../lib/ThemeContext";
 
 const rawTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY);
 
 const isTheme = (value: unknown): value is Theme =>
-    typeof value === 'string' && (Object.values(Theme) as string[]).includes(value);
+    typeof value === "string" && (Object.values(Theme) as string[]).includes(value);
 
 const defaultTheme = isTheme(rawTheme) ? rawTheme : Theme.LIGHT;
 

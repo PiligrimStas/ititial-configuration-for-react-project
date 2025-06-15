@@ -1,17 +1,17 @@
 // test.tsx
-import { useEffect } from 'react';
+// import { useEffect } from "react";
 
-export const Abc = ({ name = 3 }) => {
-    // const a = 3000;
-    console.log('asdfd');
-    useEffect(() => {
-        if (name > 3000) {
-            console.log('asdfd');
-        }
-    }, []);
+// export const Abc = ({ name = 3 }) => {
+//     // const a = 3000;
+//     console.log("asdfd");
+//     useEffect(() => {
+//         if (name > 3000) {
+//             console.log("asdfd");
+//         }
+//     }, []);
 
-    return <img src="" />;
-};
+//     return <img src="" />;
+// };
 
 // const foo = 1;
 

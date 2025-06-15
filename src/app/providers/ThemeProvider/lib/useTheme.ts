@@ -1,6 +1,6 @@
-import { useContext } from 'react';
+import { useContext } from "react";
 
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
+import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "./ThemeContext";
 
 interface UseThemeResult {
     toggleTheme: () => void;
@@ -11,7 +11,7 @@ export function useTheme(): UseThemeResult {
     const { theme, setTheme } = useContext(ThemeContext);
 
     if (theme === undefined || setTheme === undefined) {
-        throw new Error('you are using useTheme without provider');
+        throw new Error("you are using useTheme without provider");
     }
 
     const toggleTheme = (): void => {

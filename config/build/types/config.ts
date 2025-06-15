@@ -2,7 +2,7 @@
 
 // этот тип опсывает в каком режиме webpack будет собирать приложение, его значение будет переданно одним из параметров в
 //  функцию buildWepackCongig, котоая будет возвращать объект конфигурации webpack. Значения этого типа попадёт в поле mode вебпак конфигурации
-export type BuildMode = 'production' | 'development';
+export type BuildMode = "production" | "development";
 
 // этот интерфейс описывает типы объекта путей которые буде передваться в функцию buildWepackCongig, котоая будет возвращать объект конфигурации webpack
 export interface BuildPaths {

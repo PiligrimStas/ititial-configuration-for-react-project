@@ -1,4 +1,4 @@
-import storybook from 'eslint-plugin-storybook';
+import storybook from "eslint-plugin-storybook";
 
 export const storybookConfig = {
     // Включаем все правила Storybook
@@ -9,5 +9,5 @@ export const storybookConfig = {
         ...storybook.configs.recommended.rules,
         ...storybook.configs.csf.rules,
     },
-    files: ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
+    files: ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
 };

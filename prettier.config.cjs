@@ -1,6 +1,6 @@
 // prettier.config.js
 /** @type {import('prettier').Config} */
-export default {
+module.exports = {
     tabWidth: 4, // 4 пробела вместо 2
     semi: true, // ставим точку с запятой
     singleQuote: true, // используем одинарные кавычки

@@ -1,33 +1,33 @@
 // buildLoaders.ts
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
-import type { BuildOptions } from './types/config';
-import type webpack from 'webpack';
+import type { BuildOptions } from "./types/config";
+import type webpack from "webpack";
 
 // Функция генерации набора загрузчиков для стилей
 function getStyleLoaders(isModule: boolean, isDev: boolean): webpack.RuleSetUseItem[] {
     return [
         // В DEV режиме используем style-loader для внедрения стилей в <style> теги
         // В PROD режиме выносим стили в отдельные файлы через MiniCssExtractPlugin
-        isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+        isDev ? "style-loader" : MiniCssExtractPlugin.loader,
 
         // Основной css-loader
         {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: isModule
                 ? {
                       esModule: true, // Используем es-модули для корректной работы импорта
                       modules: {
                           namedExport: true, // Экспортируем каждый класс отдельно
-                          exportLocalsConvention: 'as-is', // Оставляем оригинальные имена классов
-                          localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]', // Уникализация классов
+                          exportLocalsConvention: "as-is", // Оставляем оригинальные имена классов
+                          localIdentName: isDev ? "[path][name]__[local]" : "[hash:base64:8]", // Уникализация классов
                       },
                   }
                 : undefined, // Для глобальных стилей специальные настройки не нужны
         },
 
         // sass-loader для поддержки SCSS синтаксиса
-        'sass-loader',
+        "sass-loader",
     ];
 }
 
@@ -37,14 +37,14 @@ export function buildLoaders({ useEsbuild = false, isDev }: BuildOptions): webpa
         exclude: /node_modules/,
         use: useEsbuild
             ? {
-                  loader: 'esbuild-loader',
+                  loader: "esbuild-loader",
                   options: {
-                      loader: 'tsx', // Для TSX файлов
-                      target: 'es2020', // Целевая версия JS
+                      loader: "tsx", // Для TSX файлов
+                      target: "es2020", // Целевая версия JS
                   },
               }
             : {
-                  loader: 'ts-loader', // Если не используем esbuild
+                  loader: "ts-loader", // Если не используем esbuild
               },
     };
 
@@ -54,17 +54,17 @@ export function buildLoaders({ useEsbuild = false, isDev }: BuildOptions): webpa
         oneOf: [
             {
                 resourceQuery: /react/, // import icon from './icon.svg?react'
-                use: ['@svgr/webpack'],
+                use: ["@svgr/webpack"],
             },
             {
-                type: 'asset/resource', // import icon from './icon.svg'
+                type: "asset/resource", // import icon from './icon.svg'
             },
         ],
     };
 
     const assetLoader: webpack.RuleSetRule = {
         test: /\.(png|jpe?g|gif|woff2|woff)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
     };
 
     // Загрузчик для модульных SCSS файлов (*.module.scss)
@@ -85,7 +85,7 @@ export function buildLoaders({ useEsbuild = false, isDev }: BuildOptions): webpa
         exclude: /node_modules/, // Исключаем node_modules — обрабатывать их не нужно (и долго)
 
         use: {
-            loader: 'babel-loader', // Указываем Webpack использовать babel-loader
+            loader: "babel-loader", // Указываем Webpack использовать babel-loader
         },
     };
 

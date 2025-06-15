@@ -1,6 +1,6 @@
 // buildDevServer.ts
-import type { BuildOptions } from './types/config';
-import type { Configuration as DevServerConfiguration } from 'webpack-dev-server'; // здесь мы переименовали импорт типа что бы он не пересекался с одноимённым типам самого webpack
+import type { BuildOptions } from "./types/config";
+import type { Configuration as DevServerConfiguration } from "webpack-dev-server"; // здесь мы переименовали импорт типа что бы он не пересекался с одноимённым типам самого webpack
 
 
 export function buildDevServer(options: BuildOptions): DevServerConfiguration {
@@ -12,7 +12,7 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         //  маршруту (например, /about, /profile, /dashboard), не выбрасывай 404, а отдай index.html!"
         hot: true, // включаем HMR (раньше подключался в plugings, сейчас так как используем dev-server в plugins подключать явно не нужно достаточно включить здесь)
         client: {
-            logging: 'warn', // Показывать базовые сообщения сборки в консоли браузера (ещё можно можно 'silent', 'error', 'warn', 'info', 'log', 'verbose')
+            logging: "warn", // Показывать базовые сообщения сборки в консоли браузера (ещё можно можно 'silent', 'error', 'warn', 'info', 'log', 'verbose')
             overlay: {
                 errors: true, // Показывать ошибки как overlay
                 warnings: false, // В варнингах смысла мало, не засоряем интерфейс

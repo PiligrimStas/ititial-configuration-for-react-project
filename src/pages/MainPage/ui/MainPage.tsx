@@ -1,4 +1,7 @@
+// MainPage.tsx
 import { useTranslation } from 'react-i18next';
+
+import { BugButton } from 'app/providers/ErrorBoundary';
 
 import type { JSX } from 'react';
 
@@ -9,11 +12,12 @@ const MainPage = (): JSX.Element => {
     return (
         <div>
             {t('Главная страница')}
-            <button className={btn}>asdfasdf</button>
-            <button className={btn2}>asdfasdf</button>
-            <button className={btn3}>asdfasdf</button>
-            <button className={btn4}>asdfasdf</button>
-            <button className={btn5}>asdfasdf</button>
+            <button className={btn}>1234</button>
+            <button className={btn2}>1234</button>
+            <button className={btn3}>1234</button>
+            <button className={btn4}>1234</button>
+            <button className={btn5}>1234</button>
+            <BugButton />
         </div>
     );
 };

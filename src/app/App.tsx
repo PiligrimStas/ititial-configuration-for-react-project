@@ -7,11 +7,11 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
 import { Navbar } from 'widgets/Navbar';
+import { PageLoader } from 'widgets/PageLoader/ui/PageLoader';
 import { Sidebar } from 'widgets/Sidebar';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 
 import './styles/index.scss';
-import { PageLoader } from 'widgets/PageLoader/ui/PageLoader';
 
 // если не все Route в Outlet lazyLoading то лучше оборачивать в suspense по отдельности отдельные маршруты в AppRouter
 const App = (): JSX.Element => {

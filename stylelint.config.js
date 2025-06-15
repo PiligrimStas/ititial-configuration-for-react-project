@@ -14,8 +14,26 @@ module.exports = {
     // - 'order/order' подключаем ниже вручную
     plugins: ['stylelint-order'],
 
+    overrides: [
+        // ✅ Затем — обычные scss (kebab-case), исключаем модули
+        {
+            files: ['**/*.scss'],
+            excludedFiles: ['**/*.module.scss'], // ⚠️ Важно!
+            rules: {
+                'selector-class-pattern': '^[a-z0-9\\-]+$', // kebab-case
+            },
+        },
+        // ✅ Сначала — правило для module.scss (camelCase)
+        {
+            files: ['**/*.module.scss'],
+            rules: {
+                'selector-class-pattern': '^[a-z][a-zA-Z0-9]+$', // camelCase
+            },
+        },
+    ],
+
     rules: {
-        // 🧾 Требуем использовать camelCase в именах классов
+        //  Требуем использовать camelCase в именах классов
         // (подходит для SCSS-модулей и компонентов)
         'selector-class-pattern': '^[a-z][a-zA-Z0-9]+$',
 

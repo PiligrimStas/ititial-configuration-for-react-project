@@ -47,5 +47,13 @@ export const tsConfig = {
                 detectObjects: false, // Не проверять числовые литералы внутри объектов (например: { gap: 8 })
             },
         ],
+        '@typescript-eslint/no-unused-vars': [
+            'warn',
+            {
+                argsIgnorePattern: '^_',
+                varsIgnorePattern: '^_',
+                caughtErrorsIgnorePattern: '^_',
+            },
+        ],
     },
 };

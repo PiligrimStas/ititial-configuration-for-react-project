@@ -1,9 +1,9 @@
 //NotFoundPage.tsx
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from "shared/lib/classNames/classNames";
 
-import { notFoundPage } from './NotFoundPage.module.scss';
+import { notFoundPage } from "./NotFoundPage.module.scss";
 
 interface NotFoundPageProps {
     className?: string;
@@ -12,8 +12,8 @@ interface NotFoundPageProps {
 export const NotFoundPage = ({ className }: NotFoundPageProps) => {
     const { t } = useTranslation();
     return (
-        <div className={classNames(notFoundPage, {}, [className ?? ''])}>
-            {t('Страница не найдена')}
+        <div className={classNames(notFoundPage, {}, [className ?? ""])}>
+            {t("Страница не найдена")}
         </div>
     );
 };

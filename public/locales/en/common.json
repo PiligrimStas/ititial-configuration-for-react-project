@@ -1,6 +1,9 @@
 {
+  "выбросить ошибку": "throw error",
   "Главная страница": "Main page",
   "Страница не найдена": "Page not found",
+  "Произошла непредвиденная ошибка": "An unexpected error occurred",
+  "Обновить страницу": "Reaload page",
   "Язык": "English",
   "Главная": "Main",
   "О сайте": "About us"
