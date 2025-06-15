@@ -277,11 +277,43 @@ babel-jest
 
 jest-environment-jsdom
 Тестовое окружение, эмулирующее браузер (window, document и т.п.)
-Обязателен для React-тестов.
+Обязателен для React-тестов. Без неё не будед рабоать ReactTestingLibrarb и вообще никаие тесты с dom
 Указывается в testEnvironment: 'jsdom'.
 
 eslint-plugin-jest
 Плагин ESLint с правилами для Jest.
 Находит потенциальные ошибки (test.only, expect() без .toBe()).
 Помогает писать чистые, согласованные тесты.
+
+
+@testing-library/react
+Основной пакет для тестирования React-компонентов через DOM.
+Предоставляет функцию render() и утилиты вроде screen, within, rerender.
+Используется во всех юнит-тестах компонентов React.
+
+@testing-library/dom
+Низкоуровневая библиотека, на которой построен @testing-library/react.
+Используется под капотом. Иногда применяют напрямую для нестандартных DOM-операций.
+Под капотом RTL, или при работе с чистым DOM (без React).
+
+
+@types/jest
+Типы для Jest — чтобы TypeScript знал, что такое describe, it, expect, jest.fn() и т.д.
+Без него TS будет ругаться на все глобальные тестовые функции.
+Используется во всех .test.ts(x) файлах.
+
+identity-obj-proxy
+Мок для CSS Modules в Jest.
+Позволяет писать expect(element).toHaveClass(styles.button) без ошибок — возвращает имена классов как строки.
+Используется moduleNameMapper в jest.config.ts для *.module.scss.
+
+@testing-library/user-event
+Высокоуровневая библиотека для имитации действий пользователя (клик, ввод текста, tab).
+Реалистичная альтернатива fireEvent, ближе к поведению настоящего браузера.
+Используется во всех тестах, где моделируются действия пользователя: клики, ввод, навигация по клавиатуре.
+
+webpack-bundle-analyzer
+Визуализатор размера Webpack-бандла.
+Позволяет понять, что попало в финальный бандл и что можно оптимизировать (splitChunks, lazy loading и т.п.)
+Используется в сборке через Webpack (buildPlugins.ts) — включается по флагу ANALYZE=true.
 

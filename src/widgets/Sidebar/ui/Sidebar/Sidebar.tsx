@@ -3,6 +3,7 @@
 import { type JSX, useState } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
+import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
 
 import { sidebar, collapsed } from './Sidebar.module.scss';
 
@@ -20,16 +21,17 @@ export const Sidebar = ({ className }: SidebarProps): JSX.Element => {
     const onToggle = (): void => {
         setIsCollapsed((prev) => !prev);
     };
-
     return (
         <div
+            data-testid="sidebar"
             className={classNames(sidebar, { [sidebarClasses.collapsed]: isCollapsed }, [
                 className ?? '',
             ])}
         >
-            <button style={{ color: 'red' }} onClick={onToggle}>
+            <button style={{ color: 'red' }} onClick={onToggle} data-testid="sidebar-toggle">
                 1234
             </button>
+            <LangSwitcher />
         </div>
     );
 };
