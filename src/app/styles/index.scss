@@ -8,10 +8,8 @@
 @use './global';
 
 // читаем значения переменных созданых в селекторе .app.dark или .app.light если на странице не использовался селектор например class="app dark" а использовался только class="app" то эти переменные будут пустыми
+
 .app {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
     min-height: 100vh;
 
     // color: var(--primary-color);
@@ -19,6 +17,12 @@
 
     // background-color: var(--bg-color);
     background-color: var(--color-bg);
+}
+
+.app-display {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .content-page {

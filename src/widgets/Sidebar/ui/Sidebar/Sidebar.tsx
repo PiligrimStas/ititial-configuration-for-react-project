@@ -3,6 +3,7 @@
 import { type JSX, useState } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
 
 import { sidebar, collapsed } from './Sidebar.module.scss';
@@ -28,9 +29,9 @@ export const Sidebar = ({ className }: SidebarProps): JSX.Element => {
                 className ?? '',
             ])}
         >
-            <button style={{ color: 'red' }} onClick={onToggle} data-testid="sidebar-toggle">
-                1234
-            </button>
+            <Button theme={ThemeButton.OUTLINE} onClick={onToggle} data-testid="sidebar-toggle">
+                123
+            </Button>
             <LangSwitcher />
         </div>
     );

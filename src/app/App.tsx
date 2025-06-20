@@ -18,7 +18,7 @@ const App = (): JSX.Element => {
     const { theme } = useTheme();
 
     return (
-        <div className={classNames('app', {}, [theme])}>
+        <div className={classNames('app app-display', {}, [theme])}>
             {/* <button onClick={toggleTheme}>TOGGLE</button> */}
             <Suspense fallback="">
                 {/* этот Suspense нужен для нормальный работы i18next который будет гризит переводы аснихронно */}

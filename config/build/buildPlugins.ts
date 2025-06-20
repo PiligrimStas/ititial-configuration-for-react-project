@@ -1,6 +1,7 @@
 // buildPlugings.ts
 
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -25,6 +26,11 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
         }),
         new BundleAnalyzerPlugin({
             openAnalyzer: false, // указывает открывать ли автоматически bundle analyzer при собрке приложения
+        }),
+        // Копируем переводы i18n из public/locales → build/locales
+
+        new CopyPlugin({
+            patterns: [{ from: paths.locales, to: paths.buildLocales }],
         }),
     ];
 
@@ -54,3 +60,8 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
 // webpack.DefinePlugin Плагин создаёт глобальные переменные доступные во всём приложении в любом его файле без всякого импорта
 
 // ReactRefreshWebpackPlugin Нужен для корректной работы HRM с React. Например правильно работает с состоянием компоентов, помогает избежать лишних перезагрузок страницы при сохранении изменений
+
+//CopyPlugin Я использую i18next с i18next-http-backend, который загружает переводы с сервера (public/locales/...).
+// При сборке Webpack не включает public/locales автоматически в build/, так как это статичные файлы, а не импортируемые модули.
+// Поэтому я использую copy-webpack-plugin, чтобы скопировать папку с переводами public/locales → build/locales при сборке проекта.
+// Это позволяет приложению корректно находить переводы после деплоя.
