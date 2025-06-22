@@ -82,5 +82,5 @@
     },
     // TS по умолчанию проверяте все файлы которые куда-нибудь импортируются, а если файл нигде не импортирован как например setupTests.ts то TS не
     // не будет проверять в нем типизацию и что бы TS проверял такие файлы мы можем включить из в поле include
-    "include": ["src", "config", "./config/jest/setupTests.ts"]
+    "include": ["src", "config", "tests", "./config/jest/setupTests.ts", "globalExtensions.d.ts"]
 }

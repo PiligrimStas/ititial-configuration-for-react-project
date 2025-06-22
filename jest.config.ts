@@ -172,6 +172,8 @@ const config: Config = {
     // This option allows use of a custom test runner
     // testRunner: "jest-circus/runner",
 
+    testPathIgnorePatterns: ['\\.visual\\.test\\.[tj]sx?$'], // игнорируем именно визуальные тесты в которых есть .visual
+
     // A map from regular expressions to paths to transformers
     transform: {
         '^.+\\.(ts|tsx|js|jsx)$': ['babel-jest', { configFile: './babel.config.cjs' }],
